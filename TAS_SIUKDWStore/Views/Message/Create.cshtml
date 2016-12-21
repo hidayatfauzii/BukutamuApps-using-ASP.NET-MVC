@@ -1,0 +1,100 @@
+﻿@model TAS_SIUKDWStore.Models.Message
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Bukutamu.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="form-horizontal">
+        <h4>Isi Form Dibawah untuk Menambah Buku Tamu</h4>
+
+        <hr />
+       
+        <div class="editor-field" style="display:none">
+            @Html.DropDownList("UserId")
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContentMessage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContentMessage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ContentMessage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.TimeMessage, new { @Readonly = true, @Value = DateTime.Now.Date.ToLongDateString() })
+            @Html.ValidationMessageFor(model => model.TimeMessage)
+        </div>
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.pict, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="file" id="file" class="form-control" />
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tambah" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<div class="alert alert-success">
+    @ViewBag.Success
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+<br />
+<br />
+
+<footer>
+    <p>
+        <strong>© 2016 Mukidi &amp; Tumini</strong><br>
+    </p>
+    <div class="soc-icons"><a href="#"><img src="@Url.Content("~/Content/mytemplate/")images/icon-1.png" alt=""></a><a href="#"><img src="@Url.Content("~/Content/mytemplate/")images/icon-2.png" alt=""></a><a href="#"><img src="@Url.Content("~/Content/mytemplate/")images/icon-3.png" alt=""></a></div>
+</footer>
+
+    @*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Message</legend>
+
+            <div class="editor-field" style="display:none">
+                @Html.DropDownList("UserId")
+            </div>
+
+            <div class="form-group">
+                <div class="controls">
+                    <textarea class="form-control" id="ContentMessage" name="ContentMessage" placeholder="Write your message here..." required rows="4"></textarea>
+                </div>
+            </div>	
+            <div class="editor-field">
+                @Html.HiddenFor(model => model.TimeMessage, new { @Readonly = true, @Value = DateTime.Now.Date.ToLongDateString() })
+                @Html.ValidationMessageFor(model => model.TimeMessage)
+            </div>
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+

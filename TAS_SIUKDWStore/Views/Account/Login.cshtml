@@ -1,0 +1,60 @@
+﻿@model TAS_SIUKDWStore.Models.LoginModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_Bukutamu.cshtml";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<section id="loginForm">
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+                <fieldset>
+                    <legend>Log in Form</legend>
+                        <table style="width:auto;">
+                            <tr>
+                                <td>Username</td>
+                                <td>@Html.TextBoxFor(m => m.UserName)</td>@Html.ValidationMessageFor(m => m.UserName)
+                                
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td>@Html.PasswordFor(m => m.Password)</td>@Html.ValidationMessageFor(m => m.Password)
+                                 
+                            </tr>
+                            <tr>
+                                <td ></td>
+                                <td style="float:right;">@Html.CheckBoxFor(m => m.RememberMe) &nbsp;&nbsp;
+                                    @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })</td>
+                                 
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="float:right;"><input type="submit" value="Log in" /></td>
+                            </tr>
+                        </table>
+                </fieldset>
+    <p>
+        @Html.ActionLink("Register", "Register") if you don't have an account.
+    </p>
+}
+</section>
+
+
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
+
+<br />
+<br />
+
+<footer>
+    <p>
+        <strong>© 2016 Mukidi &amp; Tumini</strong><br>
+    </p>
+    <div class="soc-icons"><a href="#"><img src="@Url.Content("~/Content/mytemplate/")images/icon-1.png" alt=""></a><a href="#"><img src="@Url.Content("~/Content/mytemplate/")images/icon-2.png" alt=""></a><a href="#"><img src="@Url.Content("~/Content/mytemplate/")images/icon-3.png" alt=""></a></div>
+</footer>

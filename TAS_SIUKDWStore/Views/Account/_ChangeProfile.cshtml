@@ -1,0 +1,30 @@
+﻿@model TAS_SIUKDWStore.Models.RegisterModel
+
+@using (Html.BeginForm("ChangeProfile", "Account"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Change Profile</legend>
+        @Html.HiddenFor(m => m.UserName)
+        <table style="width:auto;">
+            <tr>
+                <td>Your Name</td>
+                <td>@Html.TextBoxFor(m => m.FullName)
+
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>@Html.TextBoxFor(m => m.Email)
+
+            </tr>
+            <tr>
+                <td>Adress</td>
+                <td>@Html.TextBoxFor(m => m.Address)
+
+            </tr>
+        </table>
+        <input type="submit" value="Save Changes" />
+    </fieldset>
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+
+	Nonzero1.0 by nodethirtythree design
+	http://www.nodethirtythree.com
+	missing in a maze
+
+-->
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <title>Guest Book</title>
+    <link rel="icon" href="@Url.Content("~/Content/favico.ico")" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    @Styles.Render("~/Content/nonzero/style_blue.css")
+
+</head>
+<body>
+
+    <div id="header">
+        <div id="header_inner" class="fluid">
+            <div id="logo">
+                <h1><span>Guest Book</span></h1>
+            </div>
+            <section style="float: right" id="login">
+                @Html.Partial("_LoginPartial")
+            </section>
+            <div id="menu">
+
+                <ul>
+                    <li>
+                        @Html.ActionLink("Home", "Index", "Home")
+                    </li>              
+                    <li>
+                        @Html.ActionLink("Messages", "Index", "Message")         
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="main">
+
+        <div id="main_inner" class="fluid">
+
+            <div id="primaryContent_columnless">
+
+                <div id="columnA_columnless">
+
+                    @RenderBody()
+
+                </div>
+            </div>
+            <div class="post">
+                <p>
+                    @RenderSection("featured", required: false)
+                 </p>
+            </div>
+                <br class="clear" />
+            </div>
+
+        </div>
+
+        <div id="footer" class="fluid">
+            Copyright &copy; 2016 Your Website. All rights reserved.
+        </div>
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
